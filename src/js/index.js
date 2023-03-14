@@ -36,10 +36,15 @@ const addToTodoHtml = ({ todo, done }) => {
 
 const getLocalData = () => {
   let data = JSON.parse(localStorage.getItem("todoApp"));
+  if (!data) {
+    console.warn("No data found in local storage!");
+    console.log("Initializing storage...");
+    saveToLocalData({});
+  }
   return data;
 };
 
-const saveToLocalData = (newItem) => {
+const saveToLocalData = ({ todo, done }) => {
   let data = getLocalData();
   if (typeof data !== "Array" && !data.length) {
     alert("something is wrong"); // TODO: write a logic to ask user if they want the storage to be cleared
@@ -47,7 +52,7 @@ const saveToLocalData = (newItem) => {
   }
 
   if (typeof data === "Array" && data.length > 0) {
-    data.push(newItem);
+    data.push({ todo, done });
   }
 
   localStorage.setItem("todoApp", JSON.stringify(data));
