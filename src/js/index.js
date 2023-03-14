@@ -67,7 +67,9 @@ addBtn.addEventListener("click", () => {
     alert("Please Input a valid String");
     return;
   }
+
   let todoData = { todo, done: false };
+
   saveToLocalData(todoData);
   textInputEl.value = "";
   addToTodoHtml(todoData);
