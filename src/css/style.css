@@ -30,9 +30,13 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
-.edit-box {
-  height: 35px;
+.app-container {
   width: 400px;
+}
+
+.edit-box {
+  width: 100%;
+  height: 35px;
   /* background: hsl(0, 0%, 100%); */
   display: flex;
   align-items: center;
@@ -40,8 +44,8 @@ body {
 }
 
 .form-control {
-  width: 100%;
-  height: 100%;
+  width: 400px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,7 +97,7 @@ body {
 }
 
 .todos {
-  width: 400px;
+  margin-top: 40px;
   max-height: 350px;
   overflow: hidden;
   overflow-y: scroll;

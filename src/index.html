@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/index.js" defer></script>
+    <script src="js/index.js" type="module" defer></script>
     <title>MyTodo</title>
   </head>
   <body>
@@ -13,29 +13,31 @@
       <div class="title">
         <h1>My Todo App</h1>
       </div>
-      <div class="edit-box">
-        <form>
-          <div class="form-control">
-            <input
-              type="text"
-              class="text-input"
-              placeholder="What's on your mind?"
-              maxlength="30"
-            />
-            <div class="add-btn-environment">
-              <button type="submit" class="add-btn">Add</button>
-              <div class="add-btn-bottom-layer"></div>
+      <div class="app-container">
+        <div class="edit-box">
+          <form>
+            <div class="form-control">
+              <input
+                type="text"
+                class="text-input"
+                placeholder="What's on your mind?"
+                maxlength="30"
+              />
+              <div class="add-btn-environment">
+                <button type="submit" class="add-btn">Add</button>
+                <div class="add-btn-bottom-layer"></div>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
 
-      <div class="todos">
-        <div class="todo-item" data-done="false">
-          <span class="todo-title">Wash Plates</span>
-          <div class="buttons">
-            <button class="edit">Edit</button>
-            <button class="done">Done</button>
+        <div class="todos">
+          <div class="todo-item" data-done="false">
+            <span class="todo-title">Wash Plates</span>
+            <div class="buttons">
+              <button class="edit">Edit</button>
+              <button class="done">Done</button>
+            </div>
           </div>
         </div>
       </div>
