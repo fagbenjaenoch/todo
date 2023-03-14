@@ -47,6 +47,10 @@ const getLocalData = () => {
 const saveToLocalData = ({ todo, done }) => {
   let data = getLocalData();
   if (typeof data !== "Array" && !data.length) {
+    let answer = confirm("Do you want to reset todo data ?");
+    if (answer === true) {
+      localStorage.setItem("todoApp", "{}");
+    }
     return;
   }
 
