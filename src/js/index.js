@@ -20,7 +20,7 @@ function initialize() {
   initializeAllBtnsEventListeners();
 }
 
-textInputEl.addEventListener("keyup", () => {
+textInputEl.addEventListener("keyup", (e) => {
   if (e.key === "Enter") addBtn.click();
 });
 
