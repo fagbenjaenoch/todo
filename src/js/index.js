@@ -2,15 +2,7 @@ const todosEl = document.querySelector(".todos");
 const addBtn = document.querySelector(".add-btn");
 const textInputEl = document.querySelector(".text-input");
 
-function initialize() {
-  let localData = getLocalData();
-  if (typeof localData === "Array" && localData.length > 0) {
-    localData.forEach(({ todo, done }) => addToTodoHtml(todo, done));
-  }
-  initializeBtnsEventListeners();
-}
-
-const initializeBtnsEventListeners = () => {
+const initializeAllBtnsEventListeners = () => {
   const doneBtns = document.querySelectorAll(".done");
 
   doneBtns.forEach((doneBtn) => {
@@ -19,6 +11,14 @@ const initializeBtnsEventListeners = () => {
     });
   });
 };
+
+function initialize() {
+  let localData = getLocalData();
+  if (typeof localData === "Array" && localData.length > 0) {
+    localData.forEach(({ todo, done }) => addToTodoHtml(todo, done));
+  }
+  initializeAllBtnsEventListeners();
+}
 
 textInputEl.addEventListener("keyup", () => {
   if (e.key === "Enter") addBtn.click();
@@ -47,7 +47,6 @@ const getLocalData = () => {
 const saveToLocalData = ({ todo, done }) => {
   let data = getLocalData();
   if (typeof data !== "Array" && !data.length) {
-    alert("something is wrong"); // TODO: write a logic to ask user if they want the storage to be cleared
     return;
   }
 
@@ -73,7 +72,7 @@ addBtn.addEventListener("click", () => {
   saveToLocalData(todoData);
   textInputEl.value = "";
   addToTodoHtml(todoData);
-  initializeBtnsEventListeners();
+  initializeAllBtnsEventListeners();
 });
 
 function updateTodo(el) {
