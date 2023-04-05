@@ -39,9 +39,10 @@ const getLocalData = () => {
   if (!data) {
     console.warn("No data found in local storage!");
     console.log("Initializing storage...");
-    saveToLocalData({}); //TODO: I'm thinking of moving the todo functionality to it's own class
+    localStorage.setItem("todoApp", "{}");
+    //TODO: I'm thinking of moving the todo functionality to it's own class
   }
-  return data;
+  return data?.length ? data : [data];
 };
 
 const saveToLocalData = ({ todo, done }) => {
